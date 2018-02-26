@@ -1,0 +1,21 @@
+Source: record ecgrdvq/raw/1001/00ed2097-cd14-4f03-ab33-853da5be5550
+val has 12 rows (signals) and 10000 columns (samples/signal)
+Duration:     0:10
+Sampling frequency: 1000 Hz  Sampling interval: 0.001 sec
+Row	Signal	Gain	Base	Units
+1	I	149792	-19192	mV
+2	II	40562.6	-22753	mV
+3	III	50900.2	-22428	mV
+4	AVR	66154.2	22430	mV
+5	AVL	130741.1	22389	mV
+6	AVF	45156.9	-22607	mV
+7	V1	74896	18256	mV
+8	V2	37582.2	-5990	mV
+9	V3	25826.2	-21629	mV
+10	V4	24935.6	-24663	mV
+11	V5	30044.2	-23942	mV
+12	V6	36534.6	-22720	mV
+
+To convert from raw units to the physical units shown
+above, call the 'rdmat.m' function from the wfdb-matlab
+toolbox: https://physionet.org/physiotools/matlab/wfdb-app-matlab/

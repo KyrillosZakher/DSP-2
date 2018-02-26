@@ -1,0 +1,21 @@
+Source: record tpehgdb/tpehgdb/tpehg1007
+val has 12 rows (signals) and 200 columns (samples/signal)
+Duration:     0:10
+Sampling frequency: 20 Hz  Sampling interval: 0.05 sec
+Row	Signal	Gain	Base	Units
+1	1	13107	0	mV
+2	1_DOCFILT-4-0.08-4	13107	0	mV
+3	1_DOCFILT-4-0.3-3	13107	0	mV
+4	1_DOCFILT-4-0.3-4	13107	0	mV
+5	2	13107	0	mV
+6	2_DOCFILT-4-0.08-4	13107	0	mV
+7	2_DOCFILT-4-0.3-3	13107	0	mV
+8	2_DOCFILT-4-0.3-4	13107	0	mV
+9	3	13107	0	mV
+10	3_DOCFILT-4-0.08-4	13107	0	mV
+11	3_DOCFILT-4-0.3-3	13107	0	mV
+12	3_DOCFILT-4-0.3-4	13107	0	mV
+
+To convert from raw units to the physical units shown
+above, call the 'rdmat.m' function from the wfdb-matlab
+toolbox: https://physionet.org/physiotools/matlab/wfdb-app-matlab/
