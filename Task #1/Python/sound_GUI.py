@@ -87,7 +87,7 @@ class Ui_Listen(object):
         duration = float(self.dura.toPlainText())  # input  # in seconds, may be float
         f = float(self.freq.toPlainText())  # input   # sine frequency, Hz, may be float
         # generate samples, note conversion to float32 array
-        samples = (np.sin(2 * np.pi * np.arange(fs * duration) * f / fs) + np.sin(
+        samples = (np.sin(2 * np.pi * np.arange(fs * duration) * (f/2) / fs) + np.sin(
             2 * np.pi * np.arange(fs * duration) * f / fs)).astype(np.float32)
         # for paFloat32 sample values must be in range [-1.0, 1.0]
         stream = p.open(format=pyaudio.paFloat32,
@@ -106,7 +106,7 @@ class Ui_Listen(object):
         duration = float(self.dura.toPlainText())  # input  # in seconds, may be float
         f = float(self.freq.toPlainText())  # input   # sine frequency, Hz, may be float
         # generate samples, note conversion to float32 array
-        samples = (np.sin(2 * np.pi * np.arange(fs * duration) * f / fs) + np.exp(
+        samples = (np.sin(2 * np.pi * np.arange(fs * duration) * f / fs) * np.exp(
             (-1j) * 2 * np.pi * np.arange(fs * duration) * f / fs)).astype(np.float32)
         # for paFloat32 sample values must be in range [-1.0, 1.0]
         stream = p.open(format=pyaudio.paFloat32,
