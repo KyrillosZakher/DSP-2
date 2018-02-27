@@ -1,3 +1,9 @@
+
+# coding: utf-8
+
+# In[2]:
+
+
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'untitled3.ui'
@@ -22,11 +28,11 @@ from plotly import tools
 import plotly.graph_objs as go
 plotly.offline.init_notebook_mode(connected=True)
 
-class Ui_Sample(object):
-    def setupUi(self, Sample):
-        Sample.setObjectName("Sample")
-        Sample.resize(800, 600)
-        self.centralwidget = QtWidgets.QWidget(Sample)
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(800, 600)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.choose = QtWidgets.QLabel(self.centralwidget)
         self.choose.setGeometry(QtCore.QRect(40, 30, 337, 21))
@@ -105,38 +111,38 @@ class Ui_Sample(object):
         self.choose.raise_()
         self.close.raise_()
         self.Clear.raise_()
-        Sample.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(Sample)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
-        Sample.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(Sample)
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
-        Sample.setStatusBar(self.statusbar)
+        MainWindow.setStatusBar(self.statusbar)
 
-        self.retranslateUi(Sample)
-        self.close.clicked.connect(Sample.close)
+        self.retranslateUi(MainWindow)
+        self.close.clicked.connect(MainWindow.close)
         self.Clear.clicked.connect(self.Frequency.clear)
         self.Clear.clicked.connect(self.Amplitude.clear)
         self.Clear.clicked.connect(self.SR.clear)
-        QtCore.QMetaObject.connectSlotsByName(Sample)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, Sample):
+    def retranslateUi(self, MainWindow):
         global signal
         signal =0
         _translate = QtCore.QCoreApplication.translate
-        Sample.setWindowTitle(_translate("Sample", "MainWindow"))
-        self.choose.setText(_translate("Sample", "Choose what to plot"))
-        self.label.setText(_translate("Sample", "Frequency (Hz)"))
-        self.label_2.setText(_translate("Sample", "Amplitude"))
-        self.label_3.setText(_translate("Sample", "Sampling Rate"))
-        self.choose_2.setText(_translate("Sample", "if you want to Sample"))
-        self.sample.setText(_translate("Sample", "Sample"))
-        self.close.setText(_translate("Sample", "Close"))
-        self.Clear.setText(_translate("Sample", "Clear Values"))
-        self.exp.setText(_translate("Sample", "Exp"))
-        self.sine.setText(_translate("Sample", "Sine"))
-        self.cosine.setText(_translate("Sample", "Cosine"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.choose.setText(_translate("MainWindow", "Choose what to plot"))
+        self.label.setText(_translate("MainWindow", "Frequency (Hz)"))
+        self.label_2.setText(_translate("MainWindow", "Amplitude"))
+        self.label_3.setText(_translate("MainWindow", "Sampling Rate"))
+        self.choose_2.setText(_translate("MainWindow", "if you want to Sample"))
+        self.sample.setText(_translate("MainWindow", "Sample"))
+        self.close.setText(_translate("MainWindow", "Close"))
+        self.Clear.setText(_translate("MainWindow", "Clear Values"))
+        self.exp.setText(_translate("MainWindow", "Exp"))
+        self.sine.setText(_translate("MainWindow", "Sine"))
+        self.cosine.setText(_translate("MainWindow", "Cosine"))
         self.exp.clicked.connect(self.Exp)
         self.sine.clicked.connect(self.Sin)
         self.cosine.clicked.connect(self.Cos)
@@ -184,21 +190,26 @@ class Ui_Sample(object):
         plt.ylabel('voltage(V)')
         plt.show()
 
+    
     def Samp(self):
         global signal
+        
+        
+        
+        
 
         if(signal == 'Exp'):
 
             time_of_view = 1.;  # s.
             analog_time = np.linspace(0, time_of_view, 10e5);  # s.
 
-            sampling_rate = 20.;  # Hz
+            sampling_rate = S_Sampling_Rate = float(self.SR.toPlainText());  # Hz
             sampling_period = 1. / sampling_rate;  # s
             sample_number = time_of_view / sampling_period;
             sampling_time = np.linspace(0, time_of_view, sample_number);
 
-            carrier_frequency = 9.;
-            amplitude = 1;
+            carrier_frequency = S_Frequency = float(self.Frequency.toPlainText());
+            amplitude = S_Amplitude = float(self.Amplitude.toPlainText());
             phase = 0;
 
             quantizing_bits = 4;
@@ -227,12 +238,11 @@ class Ui_Sample(object):
             time_of_view = 1.;  # s.
             analog_time = np.linspace(0, time_of_view, 10e5);  # s.
 
-            sampling_rate = 20.;  # Hz
+            sampling_rate = S_Sampling_Rate = float(self.SR.toPlainText());  # Hz
             sampling_period = 1. / sampling_rate;  # s
-            sample_number = time_of_view / sampling_period;
-            sampling_time = np.linspace(0, time_of_view, sample_number);
 
-            carrier_frequency = 9.;
+            carrier_frequency = S_Frequency = float(self.Frequency.toPlainText());
+            amplitude = S_Amplitude = float(self.Amplitude.toPlainText());
             amplitude = 1;
             phase = 0;
 
@@ -262,13 +272,14 @@ class Ui_Sample(object):
             time_of_view = 1.;  # s.
             analog_time = np.linspace(0, time_of_view, 10e5);  # s.
 
-            sampling_rate = 20.;  # Hz
+            sampling_rate = S_Sampling_Rate = float(self.SR.toPlainText());  # Hz
             sampling_period = 1. / sampling_rate;  # s
             sample_number = time_of_view / sampling_period;
             sampling_time = np.linspace(0, time_of_view, sample_number);
 
-            carrier_frequency = 9.;
-            amplitude = 1;
+
+            carrier_frequency = S_Frequency = float(self.Frequency.toPlainText());
+            amplitude = S_Amplitude = float(self.Amplitude.toPlainText());
             phase = 0;
 
             quantizing_bits = 4;
@@ -292,19 +303,16 @@ class Ui_Sample(object):
             plt.show()
             signal = 0
         elif(signal == 0):
-            print('A7A')
-
-
-
-
+            print('No signal')
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Sample = QtWidgets.QMainWindow()
-    ui = Ui_Sample()
-    ui.setupUi(Sample)
-    Sample.show()
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
     sys.exit(app.exec_())
+
 
