@@ -28,11 +28,11 @@ from plotly import tools
 import plotly.graph_objs as go
 plotly.offline.init_notebook_mode(connected=True)
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_Sample(object):
+    def setupUi(self, Sample):
+        Sample.setObjectName("Sample")
+        Sample.resize(800, 600)
+        self.centralwidget = QtWidgets.QWidget(Sample)
         self.centralwidget.setObjectName("centralwidget")
         self.choose = QtWidgets.QLabel(self.centralwidget)
         self.choose.setGeometry(QtCore.QRect(40, 30, 337, 21))
@@ -111,38 +111,38 @@ class Ui_MainWindow(object):
         self.choose.raise_()
         self.close.raise_()
         self.Clear.raise_()
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        Sample.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(Sample)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        Sample.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(Sample)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        Sample.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        self.close.clicked.connect(MainWindow.close)
+        self.retranslateUi(Sample)
+        self.close.clicked.connect(Sample.close)
         self.Clear.clicked.connect(self.Frequency.clear)
         self.Clear.clicked.connect(self.Amplitude.clear)
         self.Clear.clicked.connect(self.SR.clear)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(Sample)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Sample):
         global signal
         signal =0
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.choose.setText(_translate("MainWindow", "Choose what to plot"))
-        self.label.setText(_translate("MainWindow", "Frequency (Hz)"))
-        self.label_2.setText(_translate("MainWindow", "Amplitude"))
-        self.label_3.setText(_translate("MainWindow", "Sampling Rate"))
-        self.choose_2.setText(_translate("MainWindow", "if you want to Sample"))
-        self.sample.setText(_translate("MainWindow", "Sample"))
-        self.close.setText(_translate("MainWindow", "Close"))
-        self.Clear.setText(_translate("MainWindow", "Clear Values"))
-        self.exp.setText(_translate("MainWindow", "Exp"))
-        self.sine.setText(_translate("MainWindow", "Sine"))
-        self.cosine.setText(_translate("MainWindow", "Cosine"))
+        Sample.setWindowTitle(_translate("Sample", "MainWindow"))
+        self.choose.setText(_translate("Sample", "Choose what to plot"))
+        self.label.setText(_translate("Sample", "Frequency (Hz)"))
+        self.label_2.setText(_translate("Sample", "Amplitude"))
+        self.label_3.setText(_translate("Sample", "Sampling Rate"))
+        self.choose_2.setText(_translate("Sample", "if you want to Sample"))
+        self.sample.setText(_translate("Sample", "Sample"))
+        self.close.setText(_translate("Sample", "Close"))
+        self.Clear.setText(_translate("Sample", "Clear Values"))
+        self.exp.setText(_translate("Sample", "Exp"))
+        self.sine.setText(_translate("Sample", "Sine"))
+        self.cosine.setText(_translate("Sample", "Cosine"))
         self.exp.clicked.connect(self.Exp)
         self.sine.clicked.connect(self.Sin)
         self.cosine.clicked.connect(self.Cos)
@@ -309,10 +309,10 @@ class Ui_MainWindow(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Sample = QtWidgets.QMainWindow()
+    ui = Ui_Sample()
+    ui.setupUi(Sample)
+    Sample.show()
     sys.exit(app.exec_())
 
 
